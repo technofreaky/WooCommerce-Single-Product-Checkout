@@ -2,20 +2,20 @@
 Contributors: varunms
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-single-product-checkout/
-Tags: WooCommerce,Quick Dontion,quick donation,online donation,wordpress donation,simple donation,donation form,WC donation,Online Payment,Payment,Online,Donate,Monthly Goal,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce,discounts, prices, roles, wholesale, woocommerce,advertising, bogo, deals, discount, dynamic pricing, group pricing, marketing, Membership, price, promotion, role,single checkout,product,single product
+Tags: Single Product,Product,WooCommerce,Ecommerce,Single Product Checkout,Product Checkout,Checkout,1 Product Checkout,Single Checkout,wc,wc product,product,global limit,product quantity,quantity,products,guest checkout
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=36Y7KSYPF7KTU
 Requires at least: 3.0
-Tested up to: 4.3
+Tested up to: 4.9
 WC requires at least: 2.2
-WC tested up to: 2.4.6
-Stable tag: 0.1
+WC tested up to: 3.1
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
 Allows Shop Owners To Set Product To Be Sold Separately
 
 == Description ==
-Allows Shop Owners To Set Product To Be Sold Separately With Predefined Max Allowed Quantity
+Allows Shop Owners To Set Product To Be Sold Separately With Predefined Max Allowed Quantity & Min Required Quantity
 
 **Features**
 1. Set Single Product Checkout For Variable / Simple Product
@@ -25,6 +25,8 @@ Allows Shop Owners To Set Product To Be Sold Separately With Predefined Max Allo
 **Settings Under**
  - WooCommerce Settings -> WC-SPC
  
+Banner & Icon By <a href="http://arkblueprint.com/">Arkblueprint</a>
+
 == Screenshots ==
 1. Plugin Settings
 2. Plugin Settings
@@ -56,20 +58,12 @@ The manual installation method involves downloading our plugin and uploading it 
  * OR via direct ZIP upload:
  * Upload the ZIP package via 'Plugins > Add New > Upload' in your WP Admin
  * OR via FTP upload:
- * Upload `woocommerce-quick-buy` folder to the `/wp-content/plugins/` directory
+ * Upload `woocommerce-single-product-checkout` folder to the `/wp-content/plugins/` directory
  
 2. Activate the plugin through the 'Plugins' menu in WordPress
  
  
 == Frequently Asked Questions ==
-
-**How I Can Get Support For This Plugin**
-
-* http://varunsridharan.in/plugin-support/
-* https://wordpress.org/support/plugin/woocommerce-single-product-checkout
-* https://github.com/technofreaky/WooCommerce-Single-Product-Checkout
-* Email : varunsridharan23@gmail.com
-* Email : plugin@varunsridharan.in
 
 **I have an idea for your plugin!**  
 That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. please contact us using above methods.
@@ -79,10 +73,25 @@ Oops. Please Use github / WordPress to post bugs.  <a href="https://github.com/t
 
 
 **Where can I request new features**
-
 Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Single-Product-Checkout"> GitHub </a> and we will look into it
 
 
 == Changelog == 
-= 0.1 [11/09/2015] =
+= 0.4 [26-04-2017] =
+* Minor Bug Fixed
+* Tests with latest WC
+
+= 0.3 [08-11-2015] =
+* Tweaks : Plugin Activation
+* Updated POT File
+* Minor Bug Fix
+
+= 0.2 [10-10-2015] =
+* Added : Min Required Qty Option
+* Added : Global Min Required Qty Option In Settings
+* Added : Global Max Required Qty Option In Settings
+* Added : Custom Error Message For Min Qty 
+* Fixed Minro bugs
+
+= 0.1 [11-09-2015] =
 * Base Version

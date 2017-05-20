@@ -35,4 +35,3 @@ class WooCommerce_Single_Product_Checkout_Functions {
         return get_option($option_name);
     }
 }
-?>

@@ -20,24 +20,12 @@ class WooCommerce_Single_Product_Checkout_Product_Settings extends WooCommerce_S
     /**
      * Inits Class And Runs It
      */
-    public function __construct() {
-        //self::func()->add_filter( 'product_type_options', array( $this, 'add_product_option' ));
+    public function __construct() { 
         self::func()->add_filter( 'woocommerce_product_data_tabs', array($this,'add_product_data_tab'));
         self::func()->add_action( 'woocommerce_process_product_meta_simple', array($this, 'save_meta'));
         self::func()->add_action( 'woocommerce_process_product_meta_variable', array($this, 'save_meta'));
         self::func()->add_action( 'woocommerce_product_data_panels', array($this,'add_settings'));
-    }
-    
-    
-   /* public function add_product_option($options){
-        $options['single_checkout'] = array(
-				'id'            => '_single_checkout', 
-				'label'         => $this->__('Single / Individual Checkout'),
-				'description'   => $this->__('Allows Users To Checkout This Product Seperatly'),
-				'default'       => 'no'
-			);
-       return $options;
-    }*/
+    }  
     
     public function add_product_data_tab($tabs){
         $tabs['advanced'] = array(
@@ -73,8 +61,22 @@ class WooCommerce_Single_Product_Checkout_Product_Settings extends WooCommerce_S
             <div class="options_group">
                 <?php woocommerce_wp_text_input(  
                         array( 
+                            'id' => WC_SPC_DBKEY.'product_minimum_qty', 
+                            'label' => $this->__('Min Required Qty'), 
+                            'desc_tip' => 'true', 
+                            'description' => $this->__('Minimum required Qty Per Order'), 
+                            'value' => intval($qty), 
+                            'type' => 'number', 
+                            'custom_attributes' => array('step'=> '1')
+                        )
+                    ); ?>
+            </div>
+            
+            <div class="options_group">
+                <?php woocommerce_wp_text_input(  
+                        array( 
                             'id' => WC_SPC_DBKEY.'product_allowed_qty', 
-                            'label' => $this->__('Allowed Qty'), 
+                            'label' => $this->__('Max Allowed Qty'), 
                             'desc_tip' => 'true', 
                             'description' => $this->__('Max Allowed Qty Per Order'), 
                             'value' => intval($qty), 
@@ -106,7 +108,3 @@ class WooCommerce_Single_Product_Checkout_Product_Settings extends WooCommerce_S
         
     }
 }
-
-
-
-?>

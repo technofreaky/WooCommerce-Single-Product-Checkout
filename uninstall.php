@@ -22,6 +22,3 @@ $options = array('wc_spc_redirect_to',
 foreach($options as $option){
     delete_option($option);
 }
-
-?>
-

@@ -3,13 +3,13 @@
  * Plugin Name:       WooCommerce Single Product Checkout
  * Plugin URI:        https://wordpress.org/plugins/woocommerce-single-product-checkout/
  * Description:       Allows users to check out selected product to be ordered in a separate order.
- * Version:           0.1
+ * Version:           0.4
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       woocommerce-single-product-checkout
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt 
- * GitHub Plugin URI: @TODO
+ * GitHub Plugin URI: https://github.com/technofreaky/WooCommerce-Single-Product-Checkout
  */
 
 if ( ! defined( 'WPINC' ) ) { die; }
@@ -18,7 +18,7 @@ class WooCommerce_Single_Product_Checkout {
 	/**
 	 * @var string
 	 */
-	public $version = '0.1';
+	public $version = '0.4';
 
 	/**
 	 * @var WooCommerce The single instance of the class
@@ -43,6 +43,9 @@ class WooCommerce_Single_Product_Checkout {
      */
     public function __construct() {
         $this->define_constant();
+		
+		
+        
         $this->load_required_files();
         $this->init_class();
         $this->func()->add_action( 'init', array( $this, 'init' ));
@@ -126,7 +129,7 @@ class WooCommerce_Single_Product_Checkout {
      * Define Required Constant
      */
     private function define_constant(){
-        $this->define('WC_SPC','WooCommerce Plugin Boiler Plate'); # Plugin Name
+        $this->define('WC_SPC','WooCommerce Single Product Checkout'); # Plugin Name
         $this->define('WC_SPC_SLUG','wc-spc'); # Plugin Slug
         $this->define('WC_SPC_DBKEY','wc_spc_'); # Plugin Slug
         $this->define('WC_SPC_PATH',plugin_dir_path( __FILE__ )); # Plugin DIR 
@@ -189,15 +192,11 @@ class WooCommerce_Single_Product_Checkout {
 
 
 
-
-
-
-
 if(! function_exists('is_plugin_active')){ require_once( ABSPATH . '/wp-admin/includes/plugin.php' ); }
     
     if (is_plugin_active( 'woocommerce/woocommerce.php' )) {
         
-        if(! function_exists( 'WC_RBP' )){
+        if(! function_exists( 'WC_SPC' )){
             function WC_SPC(){ return WooCommerce_Single_Product_Checkout::get_instance(); }
         }
 
@@ -206,25 +205,8 @@ if(! function_exists('is_plugin_active')){ require_once( ABSPATH . '/wp-admin/in
     } else {
         add_action( 'admin_notices', 'wc_spc_activate_failed_notice' );
     } 
-
-register_activation_hook( __FILE__, 'welcome_screen_activate' );
-function welcome_screen_activate() {
-    global $wpdb;
-    set_transient( 'wc_spc_welcome_screen_activation_redirect', true, 30 );
-}
-
-
-add_action( 'admin_init', 'welcome_screen_do_activation_redirect' );
-function welcome_screen_do_activation_redirect() {
-    if ( ! get_transient( 'wc_spc_welcome_screen_activation_redirect' ) ) { return; }
-    delete_transient( 'wc_spc_welcome_screen_activation_redirect' );
-    if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) { return; }
-    wp_safe_redirect( add_query_arg( array( 'page' => 'wc-settings','tab' => 'wc_scp','section'=>'newsletter' ), admin_url( 'admin.php' ) ) );
-
-}
+  
 
 function wc_spc_activate_failed_notice() {
 	echo '<div class="error"><p> '.__('<strong> <i> WooCommerce Single Product Checkout </i> </strong> Requires',WC_SPC_LANG).'<a href="'.admin_url( 'plugin-install.php?tab=plugin-information&plugin=woocommerce').'"> <strong>'.__(' <u>Woocommerce</u>',WC_SPC_LANG).'</strong>  </a> '.__(' To Be Installed And Activated',WC_SPC_LANG).' </p></div>';
-} 
- 
-?>
+}

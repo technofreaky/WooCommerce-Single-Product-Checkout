@@ -76,7 +76,7 @@ class WooCommerce_Single_Product_Checkout_Settings extends WC_Settings_Page {
 
                 array(
                     'title'    => __( 'Redirect User To', WC_SPC_LANG ),
-                    'desc'     => __( 'This is a simple textbox', WC_SPC_LANG ),
+                    'desc'     => __( 'Option To Redirect Use Checkout / Cart Page', WC_SPC_LANG ),
                     'id'       => WC_SPC_DBKEY.'redirect_to',
                     'css'      => 'min-width:350px;',
                     'class'    => 'wc-enhanced-select',
@@ -84,6 +84,31 @@ class WooCommerce_Single_Product_Checkout_Settings extends WC_Settings_Page {
                     'type'     => 'select',
                     'desc_tip' =>  true,
                     'options'  => array('checkout' => 'Checkout Page' , 'cart' => 'Cart Page')
+                ),
+                
+                
+                array(
+                    'title'    => __( 'Global Min required Qty', WC_SPC_LANG ),
+                    'desc'     => __( 'Set Global Minimum required Qty if not set in product', WC_SPC_LANG ),
+                    'id'       => WC_SPC_DBKEY.'gmin_req_qty',
+                    'css'      => 'min-width:350px;',
+                    'class'    => '',
+                    'default'  => 'cart',
+                    'type'     => 'number',
+                    'desc_tip' =>  true,
+
+                ),
+                
+                array(
+                    'title'    => __( 'Global Max Allowed Qty', WC_SPC_LANG ),
+                    'desc'     => __( 'Set Global Max required Qty if not set in product', WC_SPC_LANG ),
+                    'id'       => WC_SPC_DBKEY.'gmax_req_qty',
+                    'css'      => 'min-width:350px;',
+                    'class'    => '',
+                    'default'  => 'cart',
+                    'type'     => 'number',
+                    'desc_tip' =>  true,
+
                 ),
                 array( 'type' => 'sectionend', 'id' => 'wc_scp_general_end'),
             );
@@ -103,6 +128,20 @@ class WooCommerce_Single_Product_Checkout_Settings extends WC_Settings_Page {
                     'type'     => 'textarea',
                     'css'     => 'width:550px; height: 65px;',
                     'desc'    => 'Error Message When Single Checkout Product Added With Other Product',
+                    'desc_tip'  => true,
+                    'autoload' => false
+                ),
+                
+                
+                array(
+                    'title'    => __( 'Product Without Min Required Qty Limit', WC_SPC_LANG),
+                    'id'       => WC_SPC_DBKEY.'product_with_min_qty_error',
+                    'default'  => __( 'Min Required Qty Not Reached [min_req]. You Entered Have [entered] Qty', WC_SPC_LANG),
+                    'type'     => 'textarea',
+                    'css'     => 'width:550px; height: 65px;',
+                    'desc'    => 'Error Message When Product Order Qty Limit Reached / Exceeded <br/> 
+                                  Use <code> [min_req] </code> to get min required qty for the product <br/>
+                                  Use <code> [entered] </code> to get the quantity entered by the user',
                     'desc_tip'  => true,
                     'autoload' => false
                 ),
@@ -137,6 +176,7 @@ class WooCommerce_Single_Product_Checkout_Settings extends WC_Settings_Page {
                 array( 'type' => 'sectionend', 'id' => 'wc_scp_general_end'),
             );            
         } else if($section == 'newsletter'){
+            $settings = '';
             include_once('settings-newsletter.php');
         }
 

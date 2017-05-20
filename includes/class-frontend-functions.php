@@ -24,11 +24,11 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
 	 */
 	public function __construct() {
         $this->is_in_cart_single_checkout = false;
+        $this->is_loop_update = '';
         self::func()->add_filter('woocommerce_add_to_cart_validation', array($this,'check_cart'),99,3);
         self::func()->add_action('woocommerce_after_cart_item_quantity_update',array($this,'cart_qty_update'),99,3);
         self::func()->add_filter('woocommerce_add_to_cart_redirect',array($this,'change_redirect_url'),99);
     }
-    //WC()->cart->set_quantity( $cart_item_key, $quantity, false );
     
     private function get_product_status($id){
         $status = get_post_meta( $id, WC_SPC_DBKEY.'product_status',  true );
@@ -40,19 +40,56 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
         return $max_qty;
     }
     
+    private function get_product_min_qty($id){
+        $max_qty = get_post_meta( $id, WC_SPC_DBKEY.'product_minimum_qty',  true );
+        return $max_qty;
+    }
+    
+    private function get_global_min_qty(){
+        $max_qty = get_option(WC_SPC_DBKEY.'gmin_req_qty',  true );
+        return $max_qty;
+    }
+    
+    private function get_global_max_qty(){
+        $max_qty = get_option(WC_SPC_DBKEY.'gmax_req_qty',  true );
+        return $max_qty;
+    }
+    
     
     public function cart_qty_update($cart_item_key, $quantity, $old_quantity ){
         $exiting_product = WC()->cart->get_cart_item( $cart_item_key );
+        
         //quantity
         $status = $this->get_product_status($exiting_product['product_id']);
-        $max_qty = $this->get_product_max_qty($exiting_product['product_id']); 
+        $max_qty = intval($this->get_product_max_qty($exiting_product['product_id'])); 
+        $min_qty = intval($this->get_product_min_qty($exiting_product['product_id']));
+        $global_min = intval($this->get_global_min_qty());
+        $global_max = intval($this->get_global_max_qty());
+        
+        if($this->is_loop_update == 'qty_update'.$cart_item_key){$this->is_loop_update = ''; return true;}
+        
+        
         if(!empty($status)){ 
-            
+            if($max_qty == '' && $max_qty == 0 ){$max_qty = $global_max;}
+            if($min_qty == '' && $min_qty == 0 ){$min_qty = $global_min;}
+
+             
+
+            if(($quantity >= $min_qty) === false){
+                $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_min_qty_error');
+                $message = str_replace(array('[min_req]','[entered]'),array($min_qty,$quantity),$message);
+                wc_add_notice($message,'error');            
+                $this->is_loop_update = 'qty_update'.$cart_item_key;
+                WC()->cart->set_quantity( $cart_item_key, $min_qty, false );
+                return false;
+            }            
+           
             if($quantity <= $max_qty ){
                 return true;
             } else {
+                $this->is_loop_update = 'qty_update'.$cart_item_key;
                 WC()->cart->set_quantity( $cart_item_key, $old_quantity, false );
-                $allowed = $max_qty - $old_quantity;
+                $allowed = $max_qty - $old_quantity; 
                 $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_qty_error');
                 $message = str_replace(array('[cart_qty]','[allowed]'),array($old_quantity,$allowed),$message);
                 wc_add_notice($message,'error');
@@ -66,12 +103,15 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
     public function check_cart($status,$product_id,$qty){
         $status = $this->get_product_status($product_id);
         $max_qty = intval($this->get_product_max_qty($product_id));
+        $min_qty = intval($this->get_product_min_qty($product_id));
+        $global_min = intval($this->get_global_min_qty());
+        $global_max = intval($this->get_global_max_qty());
         
         if(!empty($status)){
             // Check For Other Products
             if($this->check_cart_contents($product_id)){
                 // Checks For Qty
-                if($this->check_max_product_Qty($product_id,$qty,$max_qty)){
+                if($this->check_max_product_Qty($product_id,$qty,$max_qty,$min_qty,$global_max,$global_min)){
                     $this->is_in_cart_single_checkout = true;   
                     return true;
                 }  else {
@@ -82,10 +122,12 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
             }
         }  else {
             $productids = $this->get_product_ids_from_cart();
+            
             if(! empty($productids)){
                 foreach($productids as $id){
                     $status = $this->get_product_status($id); 
                     if(!empty($status)){
+                        
                         wc_add_notice(self::func()->get_error_message(WC_SPC_DBKEY.'single_product_other_error'),'error');
                         return false;
                     } else {
@@ -114,9 +156,20 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
         return true;
     }
     
-    protected function check_max_product_Qty($product_id,$qty,$max_qty){
+    protected function check_max_product_Qty($product_id,$qty,$max_qty,$min_qty,$global_max,$global_min){
         $cart_qty = $this->get_product_qty_from_cart($product_id);
         $final_qty = $cart_qty + $qty; 
+        
+        if($max_qty == '' && $max_qty == 0 ){$max_qty = $global_max;}
+        if($min_qty == '' && $min_qty == 0 ){$min_qty = $global_min;}
+        
+        if(($qty >= $min_qty) === false){
+            $allowed = $max_qty - $cart_qty;
+            $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_min_qty_error');
+            $message = str_replace(array('[min_req]','[entered]'),array($min_qty,$qty),$message);
+            wc_add_notice($message,'error');            
+            return false;
+        }
         
         if($final_qty <= $max_qty ){
             return true;

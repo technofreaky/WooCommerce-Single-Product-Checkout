@@ -15,9 +15,6 @@
 if ( ! defined( 'WPINC' ) ) { die; }
 
 class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Product_Checkout {
-
-    
-    
     /**
 	 * Initialize the class and set its properties.
 	 * @since      0.1
@@ -31,40 +28,35 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
     }
     
     private function get_product_status($id){
-        $status = get_post_meta( $id, WC_SPC_DBKEY.'product_status',  true );
-        return $status;
+        return get_post_meta($id, WC_SPC_DBKEY.'product_status', true );
     }
     
     private function get_product_max_qty($id){
-        $max_qty = get_post_meta( $id, WC_SPC_DBKEY.'product_allowed_qty',  true );
-        return $max_qty;
+        return get_post_meta($id, WC_SPC_DBKEY.'product_allowed_qty', true );
     }
     
     private function get_product_min_qty($id){
-        $max_qty = get_post_meta( $id, WC_SPC_DBKEY.'product_minimum_qty',  true );
-        return $max_qty;
+        return get_post_meta($id, WC_SPC_DBKEY.'product_minimum_qty', true );
     }
     
     private function get_global_min_qty(){
-        $max_qty = get_option(WC_SPC_DBKEY.'gmin_req_qty',  true );
-        return $max_qty;
+        return get_option(WC_SPC_DBKEY.'gmin_req_qty', true );
     }
     
     private function get_global_max_qty(){
-        $max_qty = get_option(WC_SPC_DBKEY.'gmax_req_qty',  true );
-        return $max_qty;
+        return get_option(WC_SPC_DBKEY.'gmax_req_qty', true );
     }
-    
-    
+
     public function cart_qty_update($cart_item_key, $quantity, $old_quantity ){
-        $exiting_product = WC()->cart->get_cart_item( $cart_item_key );
+        global $woocommerce;
+        $exiting_product = $woocommerce->cart->get_cart_item( $cart_item_key );
         
         //quantity
         $status = $this->get_product_status($exiting_product['product_id']);
-        $max_qty = intval($this->get_product_max_qty($exiting_product['product_id'])); 
-        $min_qty = intval($this->get_product_min_qty($exiting_product['product_id']));
-        $global_min = intval($this->get_global_min_qty());
-        $global_max = intval($this->get_global_max_qty());
+        $max_qty = (int) $this->get_product_max_qty($exiting_product['product_id']);
+        $min_qty = (int) $this->get_product_min_qty($exiting_product['product_id']);
+        $global_min = (int) $this->get_global_min_qty();
+        $global_max = (int) $this->get_global_max_qty();
         
         if($this->is_loop_update == 'qty_update'.$cart_item_key){$this->is_loop_update = ''; return true;}
         
@@ -80,32 +72,32 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
                 $message = str_replace(array('[min_req]','[entered]'),array($min_qty,$quantity),$message);
                 wc_add_notice($message,'error');            
                 $this->is_loop_update = 'qty_update'.$cart_item_key;
-                WC()->cart->set_quantity( $cart_item_key, $min_qty, false );
+                $woocommerce->cart->set_quantity( $cart_item_key, $min_qty, false );
                 return false;
             }            
            
             if($quantity <= $max_qty ){
                 return true;
-            } else {
-                $this->is_loop_update = 'qty_update'.$cart_item_key;
-                WC()->cart->set_quantity( $cart_item_key, $old_quantity, false );
-                $allowed = $max_qty - $old_quantity; 
-                $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_qty_error');
-                $message = str_replace(array('[cart_qty]','[allowed]'),array($old_quantity,$allowed),$message);
-                wc_add_notice($message,'error');
-                return false;
             }
+
+            $this->is_loop_update = 'qty_update'.$cart_item_key;
+            $woocommerce->cart->set_quantity($cart_item_key, $old_quantity, false );
+            $allowed = $max_qty - $old_quantity;
+            $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_qty_error');
+            $message = str_replace(array('[cart_qty]','[allowed]'), array($old_quantity,$allowed), $message);
+            wc_add_notice($message, 'error');
+
+            return false;
         }
         return false;        
     }
-    
-    
+
     public function check_cart($status,$product_id,$qty){
         $status = $this->get_product_status($product_id);
-        $max_qty = intval($this->get_product_max_qty($product_id));
-        $min_qty = intval($this->get_product_min_qty($product_id));
-        $global_min = intval($this->get_global_min_qty());
-        $global_max = intval($this->get_global_max_qty());
+        $max_qty = (int) $this->get_product_max_qty($product_id);
+        $min_qty = (int) $this->get_product_min_qty($product_id);
+        $global_min = (int) $this->get_global_min_qty();
+        $global_max = (int) $this->get_global_max_qty();
         
         if(!empty($status)){
             // Check For Other Products
@@ -114,44 +106,40 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
                 if($this->check_max_product_Qty($product_id,$qty,$max_qty,$min_qty,$global_max,$global_min)){
                     $this->is_in_cart_single_checkout = true;   
                     return true;
-                }  else {
-                    return false;
                 }
-            }  else {
+
                 return false;
             }
-        }  else {
-            $productids = $this->get_product_ids_from_cart();
-            
-            if(! empty($productids)){
-                foreach($productids as $id){
-                    $status = $this->get_product_status($id); 
-                    if(!empty($status)){
-                        
-                        wc_add_notice(self::func()->get_error_message(WC_SPC_DBKEY.'single_product_other_error'),'error');
-                        return false;
-                    } else {
-                        continue;
-                    }
-                } 
-            } 
+
+            return false;
         }
-        
+
+        $productids = $this->get_product_ids_from_cart();
+
+        if(! empty($productids)){
+            foreach($productids as $id){
+                $status = $this->get_product_status($id);
+                if(!empty($status)){
+
+                    wc_add_notice(self::func()->get_error_message(WC_SPC_DBKEY.'single_product_other_error'),'error');
+                    return false;
+                }
+            }
+        }
+
         return true;
     }
-     
-    
-    
+
     public function check_cart_contents($product_id){
         $productids = $this->get_product_ids_from_cart();
         if(! empty($productids)){
             if(in_array($product_id ,$productids)){
                 return true;
-            } else {
-                
-                wc_add_notice(self::func()->get_error_message(WC_SPC_DBKEY.'other_product_error'),'error');
-                return false;
             }
+
+            wc_add_notice(self::func()->get_error_message(WC_SPC_DBKEY.'other_product_error'),'error');
+
+            return false;
         } 
         return true;
     }
@@ -164,7 +152,6 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
         if($min_qty == '' && $min_qty == 0 ){$min_qty = $global_min;}
         
         if(($qty >= $min_qty) === false){
-            $allowed = $max_qty - $cart_qty;
             $message = self::func()->get_error_message(WC_SPC_DBKEY.'product_with_min_qty_error');
             $message = str_replace(array('[min_req]','[entered]'),array($min_qty,$qty),$message);
             wc_add_notice($message,'error');            
@@ -181,11 +168,10 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
             return false;
         } 
     }
-    
-    
+
     protected function get_product_qty_from_cart($product_ID){
         global $woocommerce; 
-        if(is_object($woocommerce->cart) && sizeof($woocommerce->cart->get_cart()) > 0){
+        if(is_object($woocommerce->cart) && count($woocommerce->cart->get_cart()) > 0){
              foreach($woocommerce->cart->get_cart() as $cart_item_key => $values){
                  $_product = $values['data'];
                  if($_product->id == $product_ID){
@@ -202,7 +188,7 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
     protected function get_product_ids_from_cart(){
         global $woocommerce;
         $product_ids = array();
-        if(is_object($woocommerce->cart) && sizeof($woocommerce->cart->get_cart()) > 0){
+        if(is_object($woocommerce->cart) && count($woocommerce->cart->get_cart()) > 0){
              foreach($woocommerce->cart->get_cart() as $cart_item_key => $values){
                  $_product = $values['data'];
                  $product_ids[] = $_product->id;
@@ -210,15 +196,14 @@ class WooCommerce_Single_Product_Checkout_Frontend extends WooCommerce_Single_Pr
         }
         return $product_ids;
     }
-    
-    
+
     public function change_redirect_url($url){
         $redirect_to = self::func()->get_options(WC_SPC_DBKEY.'redirect_to');
         if($this->is_in_cart_single_checkout){
             if($redirect_to == 'checkout'){
-                $new_url = WC()->cart->get_checkout_url();
+                $new_url = wc_get_checkout_url();
             } else if($redirect_to == 'cart'){
-                $new_url = WC()->cart->get_cart_url();
+                $new_url = wc_get_cart_url();
             }
             return $new_url;
         }

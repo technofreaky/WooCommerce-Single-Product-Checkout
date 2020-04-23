@@ -1,0 +1,10 @@
+{
+  "src"     : "./",
+  "dist"    : "./i18n/spcfwc.pot",
+  "domain"  : "spcfwc",
+  "exclude" : "assets/,src/,node_modules/,vendor/",
+  "headers" : {
+    "Report-Msgid-Bugs-To" : "https://wordpress.org/support/plugin/woocommerce-single-product-checkout\n",
+    "Language-Team"        : "varunsridharan23@gmail.com\n"
+  }
+}

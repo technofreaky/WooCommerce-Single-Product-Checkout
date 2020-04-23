@@ -1,0 +1,36 @@
+{
+  "name"        : "Single Product Checkout For WooCommerce",
+  "description" : "Allows Shop Owners To Set Product To Be Sold Separately",
+  "readme"      : "readme.md",
+  "type"        : "wordpress-plugin",
+  "support"     : {
+    "issues" : "https://github.com/varunsridharan/single-product-checkout-for-woocommerce/issues/"
+  },
+  "homepage"    : "https://wordpress.org/plugins/woocommerce-single-product-checkout/",
+  "license"     : "GPL-3.0-or-later",
+  "require"     : {
+    "wponion/wponion"              : "*",
+    "varunsridharan/vsp-framework" : "*"
+  },
+  "require-dev" : {
+    "varunsridharan/wp-cli-textdomain"      : "*",
+    "varunsridharan/wp2github-md"           : "*",
+    "mustangostang/spyc"                    : "*",
+    "varunsridharan/php-classmap-generator" : "*"
+  },
+  "scripts"     : {
+    "makepot"        : "makepot ./wp-pot.json",
+    "add-textdomain" : "add-textdomain -i spcfwc ./",
+    "classmaps"      : "classmap-generator \"includes/\" ./classmaps.php",
+    "wp2githubmd"    : "wp2gitthub-md \"sku-shortlink-for-woocommerce\" \"./readme.txt\" ",
+    "build"          : [ "@classmaps", "@add-textdomain", "@makepot", "@wp2githubmd" ]
+  },
+  "authors"     : [
+    {
+      "name"     : "Varun Sridharan",
+      "email"    : "varunsridharan23@gmail.com",
+      "homepage" : "http://varunsridharan.in",
+      "role"     : "Developer"
+    }
+  ]
+}

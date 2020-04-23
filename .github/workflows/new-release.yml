@@ -1,0 +1,23 @@
+name: On Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  WordPress_Publisher:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetching Repository
+        uses: actions/checkout@v1
+      - name: Installing Composer
+        uses: pxgamer/composer-action@master
+        with:
+          command: install --no-dev
+      - name: Publishing Release To WordPress
+        uses: varunsridharan/action-wp-org-deploy@master
+        with:
+          WORDPRESS_PASSWORD: ${{ secrets.WP_PASSWORD }}
+          WORDPRESS_USERNAME: ${{ secrets.WP_USERNAME }}
+          SLUG: ${{ secrets.WP_SLUG }}

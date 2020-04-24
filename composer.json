@@ -22,7 +22,7 @@
     "makepot"        : "makepot ./wp-pot.json",
     "add-textdomain" : "add-textdomain -i spcfwc ./",
     "classmaps"      : "classmap-generator \"includes/\" ./classmaps.php",
-    "wp2githubmd"    : "wp2gitthub-md \"sku-shortlink-for-woocommerce\" \"./readme.txt\" ",
+    "wp2githubmd"    : "wp2gitthub-md \"woocommerce-single-product-checkout\" \"./readme.txt\" ",
     "build"          : [ "@classmaps", "@add-textdomain", "@makepot", "@wp2githubmd" ]
   },
   "authors"     : [

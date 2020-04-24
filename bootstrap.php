@@ -39,13 +39,13 @@ if ( ! class_exists( 'Single_Product_Checkout_For_WC' ) ) {
 			);
 			$options['settings_page'] = array(
 				'option_name'    => '_spcf_wc',
-				'framework_desc' => __( 'Allows Shop Owners To Set Product To Be Sold Separately' ),
+				'framework_desc' => __( 'Allows Shop Owners To Set Product To Be Sold Separately', 'spcfwc' ),
 				'theme'          => 'wp',
 				'ajax'           => true,
 				'search'         => false,
 				'menu'           => array(
 					'page_title' => $this->plugin_name(),
-					'menu_title' => __( 'Single Product Checkout' ),
+					'menu_title' => __( 'Single Product Checkout', 'spcfwc' ),
 					'submenu'    => 'woocommerce',
 					'menu_slug'  => 'spcf-wc',
 				),

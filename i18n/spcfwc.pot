@@ -1,0 +1,197 @@
+# Copyright (C) 2020 Varun Sridharan
+# This file is distributed under the same license as the Single Product Checkout For WooCommerce plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Single Product Checkout For WooCommerce 1.0\n"
+"Report-Msgid-Bugs-To: https:\/\/wordpress.org\/support\/plugin\/woocommerce-single-product-checkout\n\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: varunsridharan23@gmail.com\n\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-24T14:59:28+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.2.0\n"
+"X-Domain: spcfwc\n"
+
+#. Plugin Name of the plugin
+#: single-product-checkout-for-woocommerce.php:21
+msgid "Single Product Checkout For WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/woocommerce-single-product-checkout/"
+msgstr ""
+
+#. Description of the plugin
+#: bootstrap.php:42
+msgid "Allows Shop Owners To Set Product To Be Sold Separately"
+msgstr ""
+
+#. Author of the plugin
+msgid "Varun Sridharan"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://varunsridharan.in"
+msgstr ""
+
+#: bootstrap.php:48
+#: includes/admin/settings/class-product.php:23
+msgid "Single Product Checkout"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:24
+msgid "Product Level Configuration"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:25
+msgid "Enable Single Product Checkout ?"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:26
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:27
+msgid "No"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:30
+msgid "if enabled. then users will have to purchase this product seperatly"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:31
+#: includes/admin/settings/class-settings.php:57
+msgid "Minimum Required Quantity ?"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:38
+#: includes/admin/settings/class-product.php:48
+#: includes/admin/settings/class-settings.php:62
+#: includes/admin/settings/class-settings.php:71
+msgid "User will be able to purchase the only if they met the requirement."
+msgstr ""
+
+#: includes/admin/settings/class-product.php:39
+#: includes/admin/settings/class-settings.php:63
+msgid "If product does not have a defined Minimum quantity then gloabl values will be used. "
+msgstr ""
+
+#: includes/admin/settings/class-product.php:41
+#: includes/admin/settings/class-settings.php:66
+msgid "Maximum Allowed Quantity ? "
+msgstr ""
+
+#: includes/admin/settings/class-product.php:49
+#: includes/admin/settings/class-settings.php:72
+msgid "If product does not have a defined Maximum quantity then gloabl values will be used. "
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:22
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:24
+msgid "Documentation"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:29
+msgid "System Info"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:40
+msgid "Basic"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:41
+msgid "Validation Messages"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:50
+msgid "Redirect User To"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:51
+msgid "Checkout Page"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:52
+msgid "Cart Page"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:53
+msgid "Redirection Works When User Add A Product To Cart / Click AddToCart button."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:55
+msgid "Global Minimum & Maximum Required Quantity Configuration"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:107
+msgid "Adding Other Product Along With Single Checkout Product"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:109
+msgid "Error Message To Shown When A Product Configured With Single Product Checkout Added With Another Product already in cart."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:111
+msgid "Validation Message For Minimum Quantity."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:113
+msgid "Error Message To Shown When A Product Does Not Met With Minimum Required Quantity."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:115
+msgid "Validation Message For Maximum Quantity."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:117
+msgid "Error Message To Shown When A Product Exceeds Maximum Allowed Quantity."
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:119
+msgid "Added With Single Product Checkout Configured Product"
+msgstr ""
+
+#: includes/admin/settings/class-settings.php:121
+msgid "Error Message To Shown When A Non Single Product Checkout Product Added To Cart when single checkout product already in cart."
+msgstr ""
+
+#: includes/class-helper.php:43
+msgid "Product SKU Code"
+msgstr ""
+
+#: includes/class-helper.php:44
+msgid "Product Name"
+msgstr ""
+
+#: includes/class-helper.php:45
+msgid "Product ID"
+msgstr ""
+
+#: includes/class-helper.php:46
+msgid "Shows Quantity Submitted By User"
+msgstr ""
+
+#: includes/class-helper.php:47
+msgid "Minimum Required Quantity"
+msgstr ""
+
+#: includes/class-helper.php:48
+msgid "Maximum Allowed Quantity"
+msgstr ""
+
+#: includes/class-helper.php:63
+msgid "Tag"
+msgstr ""
+
+#: includes/class-helper.php:63
+msgid "Description"
+msgstr ""
+
+#: includes/class-helper.php:144
+msgid "Unknown Error Occured ! ERROR : 104"
+msgstr ""

@@ -40,12 +40,12 @@ if ( ! class_exists( '\SPCF_WC\Helper' ) ) {
 		 */
 		public static function template_tags() {
 			return array(
-				'{sku}'      => __( 'Product SKU Code' ),
-				'{name}'     => __( 'Product Name' ),
-				'{id}'       => __( 'Product ID' ),
-				'{cart_qty}' => __( 'Shows Quantity Submitted By User' ),
-				'{min_qty}'  => __( 'Minimum Required Quantity' ),
-				'{max_qty}'  => __( 'Maximum Allowed Quantity' ),
+				'{sku}'      => __( 'Product SKU Code', 'spcfwc' ),
+				'{name}'     => __( 'Product Name', 'spcfwc' ),
+				'{id}'       => __( 'Product ID', 'spcfwc' ),
+				'{cart_qty}' => __( 'Shows Quantity Submitted By User', 'spcfwc' ),
+				'{min_qty}'  => __( 'Minimum Required Quantity', 'spcfwc' ),
+				'{max_qty}'  => __( 'Maximum Allowed Quantity', 'spcfwc' ),
 			);
 		}
 
@@ -60,7 +60,7 @@ if ( ! class_exists( '\SPCF_WC\Helper' ) ) {
 				return Cache::get( 'template_tags_desc' );
 			} catch ( Cache_Not_Found $exception ) {
 				$tags   = self::template_tags();
-				$thead  = '<tr><th>' . __( 'Tag' ) . '</th><th>' . __( 'Description' ) . '</th></tr>';
+				$thead  = '<tr><th>' . __( 'Tag', 'spcfwc' ) . '</th><th>' . __( 'Description', 'spcfwc' ) . '</th></tr>';
 				$return = '<table class="wpo-table wpo-text-left wpo-table-sm wpo-table-hover wpo-table-bordered" style="width:35%;">
 <thead class="wpo-thead-dark">' . $thead . '</thead><tbody>';
 				foreach ( $tags as $tag_id => $desc ) {
@@ -141,7 +141,7 @@ if ( ! class_exists( '\SPCF_WC\Helper' ) ) {
 				);
 				return str_replace( array_keys( self::template_tags() ), $replace_values, $msg );
 			}
-			return __( 'Unknown Error Occured ! ERROR : 104' );
+			return __( 'Unknown Error Occured ! ERROR : 104', 'spcfwc' );
 		}
 
 		/**

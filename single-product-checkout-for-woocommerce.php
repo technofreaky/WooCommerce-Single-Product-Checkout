@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 
 defined( 'SPCF_WC_FILE' ) || define( 'SPCF_WC_FILE', __FILE__ );
 defined( 'SPCF_WC_VERSION' ) || define( 'SPCF_WC_VERSION', '1.0' );
-defined( 'SPCF_WC_NAME' ) || define( 'SPCF_WC_NAME', __( 'Single Product Checkout For WooCommerce' ) );
+defined( 'SPCF_WC_NAME' ) || define( 'SPCF_WC_NAME', __( 'Single Product Checkout For WooCommerce', 'spcfwc' ) );
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';

@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-single-product-checkout/
 **Tags:** Single Product,Product,WooCommerce,Ecommerce,Single Product Checkout,Product Checkout,Checkout,1 Product Checkout,Single Checkout,wc,wc product,product,global limit,product quantity,quantity,products,guest checkout  
 **Donate link:** https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=36Y7KSYPF7KTU  
 **Requires at least:** 3.0  
-**Tested up to:** 4.9  
+**Tested up to:** 5.4  
 **WC requires at least:** 2.2  
 **WC tested up to:** 3.1  
-**Stable tag:** 0.4  
+**Stable tag:** 1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html   
 
@@ -22,25 +22,31 @@ Allows Shop Owners To Set Product To Be Sold Separately With Predefined Max Allo
 1. Set Single Product Checkout For Variable / Simple Product
 2. Set Max Allowed Qty For Each And Every Product
 3. Customizable Error Message
-
-**Settings Under**
- - WooCommerce Settings -> WC-SPC
  
 Banner & Icon By <a href="http://arkblueprint.com/">Arkblueprint</a>
 
 
 ## Screenshots 
-### 1. Plugin Settings
-![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-1.png)
+### 1. Plugin Menu
+![Plugin Menu](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-1.png)
 
 ### 2. Plugin Settings
 ![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-2.png)
 
-### 3. Simple Product Option
-![Simple Product Option](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-3.png)
+### 3. Plugin Settings
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-3.png)
 
-### 4. Variable Product Option
-![Variable Product Option](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-4.png)
+### 4. Plugin Settings
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-4.png)
+
+### 5. Plugin Settings
+[missing image]
+
+### 6. Plugin Settings
+[missing image]
+
+### 7. Product Option
+[missing image]
 
 
 
@@ -94,18 +100,22 @@ Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Sin
 
 ## Changelog 
 
-### 0.4 [26-04-2017] 
+### 1.0 - 24/04/2020 
+* Total Plugin Redeveloped From Base.
+
+
+### 0.4 - 26-04-2017 
 * Minor Bug Fixed
 * Tests with latest WC
 
 
-### 0.3 [08-11-2015] 
+### 0.3 - 08-11-2015 
 * Tweaks : Plugin Activation
 * Updated POT File
 * Minor Bug Fix
 
 
-### 0.2 [10-10-2015] 
+### 0.2 - 10-10-2015 
 * Added : Min Required Qty Option
 * Added : Global Min Required Qty Option In Settings
 * Added : Global Max Required Qty Option In Settings
@@ -113,5 +123,5 @@ Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Sin
 * Fixed Minro bugs
 
 
-### 0.1 [11-09-2015] 
+### 0.1 - 11-09-2015 
 * Base Version

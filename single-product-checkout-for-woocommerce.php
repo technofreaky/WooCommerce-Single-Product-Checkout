@@ -12,6 +12,8 @@
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       spcfwc
  * Domain Path:       /i18n
+ * WC requires at least: 3.5
+ * WC tested up to: 4.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -19,6 +21,8 @@ defined( 'ABSPATH' ) || exit;
 defined( 'SPCF_WC_FILE' ) || define( 'SPCF_WC_FILE', __FILE__ );
 defined( 'SPCF_WC_VERSION' ) || define( 'SPCF_WC_VERSION', '1.0' );
 defined( 'SPCF_WC_NAME' ) || define( 'SPCF_WC_NAME', __( 'Single Product Checkout For WooCommerce', 'spcfwc' ) );
+
+use Varunsridharan\WordPress\Plugin_Version_Management;
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
@@ -30,6 +34,26 @@ if ( function_exists( 'vsp_maybe_load' ) ) {
 
 if ( function_exists( 'wponion_load' ) ) {
 	wponion_load( __DIR__ . '/vendor/wponion/wponion' );
+}
+
+register_activation_hook( SPCF_WC_FILE, 'spcf_wc_activate' );
+
+if ( ! function_exists( 'spcf_wc_activate' ) ) {
+	/**
+	 * This function clears all old data.
+	 */
+	function spcf_wc_activate() {
+		require_once __DIR__ . '/installer/index.php';
+
+		$instance = new Plugin_Version_Management( array(
+			'slug'    => 'spcf_wc',
+			'version' => SPCF_WC_VERSION,
+			'logs'    => true,
+		), array(
+			'1.0' => array( '\SPCF_WC\Installer\Installer', 'run_v1' ),
+		) );
+		$instance->run();
+	}
 }
 
 if ( ! function_exists( 'spcf_wc_init' ) ) {

@@ -1,5 +1,5 @@
 {
-  "name"        : "Single Product Checkout For WooCommerce",
+  "name"        : "varunsridharan/single-product-checkout-for-woocommerce",
   "description" : "Allows Shop Owners To Set Product To Be Sold Separately",
   "readme"      : "readme.md",
   "type"        : "wordpress-plugin",

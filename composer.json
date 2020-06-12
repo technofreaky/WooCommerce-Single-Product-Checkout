@@ -23,6 +23,8 @@
     "add-textdomain" : "add-textdomain -i spcfwc ./",
     "classmaps"      : "classmap-generator \"includes/\" ./classmaps.php",
     "wp2githubmd"    : "wp2gitthub-md \"woocommerce-single-product-checkout\" \"./readme.txt\" ",
+    "wpo-dev"        : "rm -rf ./vendor/wponion/wponion && git clone --branch development https://github.com/wponion/wponion ./vendor/wponion/wponion/",
+    "vsp-dev"        : "rm -rf ./vendor/varunsridharan/vsp-framework && git clone https://github.com/varunsridharan/vsp-framework ./vendor/varunsridharan/vsp-framework/",
     "build"          : [ "@classmaps", "@add-textdomain", "@makepot", "@wp2githubmd" ]
   },
   "authors"     : [

@@ -77,6 +77,12 @@ Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Sin
 
 
 == Changelog == 
+= 1.1 - 12/06/2020
+
+* ⚡ improved performance
+* Updated : WPOnion `1.5.1`
+* Updated : VSP Framework `1.8.9.1`
+
 = 1.0 - 24/04/2020 =
 * Total Plugin Redeveloped From Base.
 

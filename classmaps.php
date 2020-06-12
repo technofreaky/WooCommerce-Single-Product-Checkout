@@ -1,9 +1,6 @@
 <?php
-/**
- * Last Updated: Fri 24-Apr-2020 / 04:42:29:pm
- * Total Class:  9
- * Namespace: 
- */
+// Last Updated: Fri 12-Jun-2020 | 03:37:50:pm
+// Total Class: 9
 
 return array (
   'SPCF_WC\\Admin\\Settings\\Product' => 'admin/settings/class-product.php',

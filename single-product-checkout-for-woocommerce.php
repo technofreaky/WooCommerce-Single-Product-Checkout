@@ -3,7 +3,7 @@
  * Plugin Name:       Single Product Checkout For WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woocommerce-single-product-checkout/
  * Description:       Allows Shop Owners To Set Product To Be Sold Separately
- * Version:           1.0
+ * Version:           1.1
  * Requires at least: 5.2
  * Requires PHP:      7.0
  * Author:            Varun Sridharan
@@ -19,7 +19,7 @@
 defined( 'ABSPATH' ) || exit;
 
 defined( 'SPCF_WC_FILE' ) || define( 'SPCF_WC_FILE', __FILE__ );
-defined( 'SPCF_WC_VERSION' ) || define( 'SPCF_WC_VERSION', '1.0' );
+defined( 'SPCF_WC_VERSION' ) || define( 'SPCF_WC_VERSION', '1.1' );
 defined( 'SPCF_WC_NAME' ) || define( 'SPCF_WC_NAME', __( 'Single Product Checkout For WooCommerce', 'spcfwc' ) );
 
 use Varunsridharan\WordPress\Plugin_Version_Management;

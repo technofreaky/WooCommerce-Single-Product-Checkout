@@ -75,12 +75,12 @@ if ( ! class_exists( 'Single_Product_Checkout_For_WC' ) ) {
 			$this->_instance( '\SPCF_WC\Admin\Settings\Product' );
 
 			wponion_plugin_links( $this->file() )
-				->action_link_before( 'settings', __( '⚙️ Settings' ), admin_url( 'admin.php?page=spcf-wc' ) )
-				->action_link_after( 'sysinfo', __( 'ℹ️ System Info' ), admin_url( 'admin.php?page=spcf-wc&container-id=sysinfo' ) )
-				->row_link( __( '📚 F.A.Q' ), 'https://wordpress.org/plugins/woocommerce-single-product-checkout/faq' )
-				->row_link( __( '📦 View On Github' ), 'https://github.com/varunsridharan/single-product-checkout-for-woocommerce' )
-				->row_link( __( '📝 Report An Issue' ), 'https://github.com/varunsridharan/single-product-checkout-for-woocommerce/issues' )
-				->row_link( __( '💁🏻 Donate', 'wc-product-subtitle' ), 'https://paypal.me/varunsridharan' );
+				->action_link_before( 'settings', __( '⚙️ Settings', 'spcfwc' ), admin_url( 'admin.php?page=spcf-wc' ) )
+				->action_link_after( 'sysinfo', __( 'ℹ️ System Info', 'spcfwc' ), admin_url( 'admin.php?page=spcf-wc&container-id=sysinfo' ) )
+				->row_link( __( '📚 F.A.Q', 'spcfwc' ), 'https://wordpress.org/plugins/woocommerce-single-product-checkout/faq' )
+				->row_link( __( '📦 View On Github', 'spcfwc' ), 'https://github.com/varunsridharan/single-product-checkout-for-woocommerce' )
+				->row_link( __( '📝 Report An Issue', 'spcfwc' ), 'https://github.com/varunsridharan/single-product-checkout-for-woocommerce/issues' )
+				->row_link( __( '💁🏻 Donate', 'wc-product-subtitle', 'spcfwc' ), 'https://paypal.me/varunsridharan' );
 		}
 	}
 }

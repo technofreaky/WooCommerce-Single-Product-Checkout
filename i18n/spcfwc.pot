@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Single Product Checkout For WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Single Product Checkout For WooCommerce 1.0\n"
+"Project-Id-Version: Single Product Checkout For WooCommerce 1.1\n"
 "Report-Msgid-Bugs-To: https:\/\/wordpress.org\/support\/plugin\/woocommerce-single-product-checkout\n\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: varunsridharan23@gmail.com\n\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-24T16:42:30+05:30\n"
+"POT-Creation-Date: 2020-06-12T15:37:51+05:30\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: spcfwc\n"
@@ -24,7 +24,7 @@ msgid "https://wordpress.org/plugins/woocommerce-single-product-checkout/"
 msgstr ""
 
 #. Description of the plugin
-#: bootstrap.php:42
+#: bootstrap.php:41
 msgid "Allows Shop Owners To Set Product To Be Sold Separately"
 msgstr ""
 
@@ -36,162 +36,182 @@ msgstr ""
 msgid "https://varunsridharan.in"
 msgstr ""
 
-#: bootstrap.php:48
-#: includes/admin/settings/class-product.php:23
+#: bootstrap.php:47
+#: includes/admin/settings/class-product.php:38
 msgid "Single Product Checkout"
 msgstr ""
 
-#: includes/admin/settings/class-product.php:24
-msgid "Product Level Configuration"
+#: bootstrap.php:78
+msgid "⚙️ Settings"
 msgstr ""
 
-#: includes/admin/settings/class-product.php:25
-msgid "Enable Single Product Checkout ?"
+#: bootstrap.php:79
+msgid "ℹ️ System Info"
 msgstr ""
 
-#: includes/admin/settings/class-product.php:26
-msgid "Yes"
+#: bootstrap.php:80
+msgid "📚 F.A.Q"
 msgstr ""
 
-#: includes/admin/settings/class-product.php:27
-msgid "No"
+#: bootstrap.php:81
+msgid "📦 View On Github"
 msgstr ""
 
-#: includes/admin/settings/class-product.php:30
-msgid "if enabled. then users will have to purchase this product seperatly"
-msgstr ""
-
-#: includes/admin/settings/class-product.php:31
-#: includes/admin/settings/class-settings.php:57
-msgid "Minimum Required Quantity ?"
-msgstr ""
-
-#: includes/admin/settings/class-product.php:38
-#: includes/admin/settings/class-product.php:48
-#: includes/admin/settings/class-settings.php:62
-#: includes/admin/settings/class-settings.php:71
-msgid "User will be able to purchase the only if they met the requirement."
+#: bootstrap.php:82
+msgid "📝 Report An Issue"
 msgstr ""
 
 #: includes/admin/settings/class-product.php:39
-#: includes/admin/settings/class-settings.php:63
-msgid "If product does not have a defined Minimum quantity then gloabl values will be used. "
+msgid "Product Level Configuration"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:40
+msgid "Enable Single Product Checkout ?"
 msgstr ""
 
 #: includes/admin/settings/class-product.php:41
-#: includes/admin/settings/class-settings.php:66
-msgid "Maximum Allowed Quantity ? "
+msgid "No"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:42
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:44
+msgid "if enabled. then users will have to purchase this product seperatly"
+msgstr ""
+
+#: includes/admin/settings/class-product.php:45
+#: includes/admin/settings/class-settings.php:56
+msgid "Minimum Required Quantity ?"
 msgstr ""
 
 #: includes/admin/settings/class-product.php:49
-#: includes/admin/settings/class-settings.php:72
+#: includes/admin/settings/class-product.php:56
+#: includes/admin/settings/class-settings.php:60
+#: includes/admin/settings/class-settings.php:68
+msgid "User will be able to purchase the only if they met the requirement."
+msgstr ""
+
+#: includes/admin/settings/class-product.php:50
+#: includes/admin/settings/class-settings.php:61
+msgid "If product does not have a defined Minimum quantity then gloabl values will be used. "
+msgstr ""
+
+#: includes/admin/settings/class-product.php:52
+#: includes/admin/settings/class-settings.php:64
+msgid "Maximum Allowed Quantity ? "
+msgstr ""
+
+#: includes/admin/settings/class-product.php:57
+#: includes/admin/settings/class-settings.php:69
 msgid "If product does not have a defined Maximum quantity then gloabl values will be used. "
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:22
+#: includes/admin/settings/class-settings.php:21
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:24
+#: includes/admin/settings/class-settings.php:23
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:29
+#: includes/admin/settings/class-settings.php:28
 msgid "System Info"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:40
+#: includes/admin/settings/class-settings.php:39
 msgid "Basic"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:41
+#: includes/admin/settings/class-settings.php:40
 msgid "Validation Messages"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:50
+#: includes/admin/settings/class-settings.php:49
 msgid "Redirect User To"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:51
+#: includes/admin/settings/class-settings.php:50
 msgid "Checkout Page"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:52
+#: includes/admin/settings/class-settings.php:51
 msgid "Cart Page"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:53
+#: includes/admin/settings/class-settings.php:52
 msgid "Redirection Works When User Add A Product To Cart / Click AddToCart button."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:55
+#: includes/admin/settings/class-settings.php:54
 msgid "Global Minimum & Maximum Required Quantity Configuration"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:107
+#: includes/admin/settings/class-settings.php:102
 msgid "Adding Other Product Along With Single Checkout Product"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:109
+#: includes/admin/settings/class-settings.php:104
 msgid "Error Message To Shown When A Product Configured With Single Product Checkout Added With Another Product already in cart."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:111
+#: includes/admin/settings/class-settings.php:106
 msgid "Validation Message For Minimum Quantity."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:113
+#: includes/admin/settings/class-settings.php:108
 msgid "Error Message To Shown When A Product Does Not Met With Minimum Required Quantity."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:115
+#: includes/admin/settings/class-settings.php:110
 msgid "Validation Message For Maximum Quantity."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:117
+#: includes/admin/settings/class-settings.php:112
 msgid "Error Message To Shown When A Product Exceeds Maximum Allowed Quantity."
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:119
+#: includes/admin/settings/class-settings.php:114
 msgid "Added With Single Product Checkout Configured Product"
 msgstr ""
 
-#: includes/admin/settings/class-settings.php:121
+#: includes/admin/settings/class-settings.php:116
 msgid "Error Message To Shown When A Non Single Product Checkout Product Added To Cart when single checkout product already in cart."
 msgstr ""
 
-#: includes/class-helper.php:43
+#: includes/class-helper.php:40
 msgid "Product SKU Code"
 msgstr ""
 
-#: includes/class-helper.php:44
+#: includes/class-helper.php:41
 msgid "Product Name"
 msgstr ""
 
-#: includes/class-helper.php:45
+#: includes/class-helper.php:42
 msgid "Product ID"
 msgstr ""
 
-#: includes/class-helper.php:46
+#: includes/class-helper.php:43
 msgid "Shows Quantity Submitted By User"
 msgstr ""
 
-#: includes/class-helper.php:47
+#: includes/class-helper.php:44
 msgid "Minimum Required Quantity"
 msgstr ""
 
-#: includes/class-helper.php:48
+#: includes/class-helper.php:45
 msgid "Maximum Allowed Quantity"
 msgstr ""
 
-#: includes/class-helper.php:63
+#: includes/class-helper.php:59
 msgid "Tag"
 msgstr ""
 
-#: includes/class-helper.php:63
+#: includes/class-helper.php:59
 msgid "Description"
 msgstr ""
 
-#: includes/class-helper.php:144
+#: includes/class-helper.php:138
 msgid "Unknown Error Occured ! ERROR : 104"
 msgstr ""

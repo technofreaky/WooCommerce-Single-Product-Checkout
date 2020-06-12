@@ -28,25 +28,25 @@ Banner & Icon By <a href="http://arkblueprint.com/">Arkblueprint</a>
 
 ## Screenshots 
 ### 1. Plugin Menu
-![Plugin Menu](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-1.png)
+![Plugin Menu](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-1.jpg)
 
 ### 2. Plugin Settings
-![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-2.png)
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-2.jpg)
 
 ### 3. Plugin Settings
-![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-3.png)
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-3.jpg)
 
 ### 4. Plugin Settings
-![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-4.png)
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-4.jpg)
 
 ### 5. Plugin Settings
-[missing image]
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-5.jpg)
 
 ### 6. Plugin Settings
-[missing image]
+![Plugin Settings](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-6.jpg)
 
 ### 7. Product Option
-[missing image]
+![Product Option](https://ps.w.org/woocommerce-single-product-checkout/assets/screenshot-7.jpg)
 
 
 
@@ -99,6 +99,13 @@ Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Sin
 
 
 ## Changelog 
+
+### 1.1 - 12/06/2020
+
+* ⚡ improved performance
+* Updated : WPOnion `1.5.1`
+* Updated : VSP Framework `1.8.9.1`
+
 
 ### 1.0 - 24/04/2020 
 * Total Plugin Redeveloped From Base.

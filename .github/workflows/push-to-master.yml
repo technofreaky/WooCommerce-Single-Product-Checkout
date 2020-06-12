@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetching Repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Generating PHP Documentation
-        uses: varunsridharan/action-apigen@1.0
+        uses: varunsridharan/action-apigen@2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

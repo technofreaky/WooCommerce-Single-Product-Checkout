@@ -17,23 +17,22 @@ if ( ! class_exists( 'Single_Product_Checkout_For_WC' ) ) {
 		 * @throws \Exception
 		 */
 		public function __construct() {
-			$this->name      = SPCF_WC_NAME;
-			$this->file      = SPCF_WC_FILE;
-			$this->version   = SPCF_WC_VERSION;
-			$this->slug      = 'single-product-checkout-for-woocommerce';
-			$this->hook_slug = 'spcf_wc';
-			$this->db_slug   = 'spcf_wc';
-
 			$options                  = array(
+				'name'         => SPCF_WC_NAME,
+				'file'         => SPCF_WC_FILE,
+				'version'      => SPCF_WC_VERSION,
+				'slug'         => 'single-product-checkout-for-woocommerce',
+				'hook_slug'    => 'spcf_wc',
+				'db_slug'      => 'spcf_wc',
 				'addons'       => false,
 				'logging'      => false,
 				'system_tools' => false,
 				'localizer'    => false,
 				'autoloader'   => array(
 					'namespace' => 'SPCF_WC',
-					'base_path' => $this->plugin_path( 'includes/' ),
+					'base_path' => $this->plugin_path( 'includes/', SPCF_WC_FILE ),
 					'options'   => array(
-						'classmap' => $this->plugin_path( 'classmaps.php' ),
+						'classmap' => $this->plugin_path( 'classmaps.php', SPCF_WC_FILE ),
 					),
 				),
 			);
@@ -44,7 +43,7 @@ if ( ! class_exists( 'Single_Product_Checkout_For_WC' ) ) {
 				'ajax'           => true,
 				'search'         => false,
 				'menu'           => array(
-					'page_title' => $this->plugin_name(),
+					'page_title' => SPCF_WC_NAME,
 					'menu_title' => __( 'Single Product Checkout', 'spcfwc' ),
 					'submenu'    => 'woocommerce',
 					'menu_slug'  => 'spcf-wc',

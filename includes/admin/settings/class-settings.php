@@ -54,23 +54,21 @@ if ( ! class_exists( '\SPCF_WC\Admin\Settings\Settings' ) ) {
 
 			$builder->subheading( __( 'Global Minimum & Maximum Required Quantity Configuration', 'spcfwc' ) );
 
-			$builder->field( 'number', 'min_qty', __( 'Minimum Required Quantity ?', 'spcfwc' ), array(
+			$builder->add_field( 'number', 'min_qty', __( 'Minimum Required Quantity ?', 'spcfwc' ), array(
 				'min'  => 1,
 				'step' => 1,
-			) )
-				->desc_field( array(
-					__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
-					__( 'If product does not have a defined Minimum quantity then gloabl values will be used. ', 'spcfwc' ),
-				) );
+			) )->desc_field( array(
+				__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
+				__( 'If product does not have a defined Minimum quantity then gloabl values will be used. ', 'spcfwc' ),
+			) );
 
-			$builder->field( 'number', 'max_qty', __( 'Maximum Allowed Quantity ? ', 'spcfwc' ), array(
+			$builder->add_field( 'number', 'max_qty', __( 'Maximum Allowed Quantity ? ', 'spcfwc' ), array(
 				'min'  => 1,
 				'step' => 1,
-			) )
-				->desc_field( array(
-					__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
-					__( 'If product does not have a defined Maximum quantity then gloabl values will be used. ', 'spcfwc' ),
-				) );
+			) )->desc_field( array(
+				__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
+				__( 'If product does not have a defined Maximum quantity then gloabl values will be used. ', 'spcfwc' ),
+			) );
 		}
 
 		/**
@@ -83,19 +81,17 @@ if ( ! class_exists( '\SPCF_WC\Admin\Settings\Settings' ) ) {
 		 * @return \WPO\Fields\WP_Editor
 		 */
 		protected function wp_editor( $builder, $id, $title ) {
-			return $builder->wp_editor( $id, $title )
-				->settings( array(
-					'wpautop'          => true,
-					'media_buttons'    => false,
-					'teeny'            => true,
-					'textarea_rows'    => 1,
-					'tinymce'          => array(
-						'toolbar1' => 'bold,italic,underline,alignleft,aligncenter,alignright,strikethrough',
-					),
-					'quicktags'        => false,
-					'drag_drop_upload' => false,
-				) )
-				->desc_field( Helper::template_desc_tags() );
+			return $builder->wp_editor( $id, $title )->settings( array(
+				'wpautop'          => true,
+				'media_buttons'    => false,
+				'teeny'            => true,
+				'textarea_rows'    => 1,
+				'tinymce'          => array(
+					'toolbar1' => 'bold,italic,underline,alignleft,aligncenter,alignright,strikethrough',
+				),
+				'quicktags'        => false,
+				'drag_drop_upload' => false,
+			) )->desc_field( Helper::template_desc_tags() );
 		}
 
 		/**

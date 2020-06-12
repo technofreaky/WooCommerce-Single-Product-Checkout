@@ -25,29 +25,22 @@ if ( ! class_exists( '\SPCF_WC\Admin\Settings\Product' ) ) {
 			$c1->select( 'is_enabled', __( 'Enable Single Product Checkout ?', 'spcfwc' ) )
 				->option( 'yes', __( 'Yes', 'spcfwc' ) )
 				->option( 'no', __( 'No', 'spcfwc' ) )
-				//->option( 'default', __( 'Default' ) )
 				->desc_field( 'if default selected then product types that are enabled in settings will be used. ' )
 				->desc( __( 'if enabled. then users will have to purchase this product seperatly', 'spcfwc' ) );
-			$c1->field( 'number', 'min_qty', __( 'Minimum Required Quantity ?', 'spcfwc' ), array(
+			$c1->add_field( 'number', 'min_qty', __( 'Minimum Required Quantity ?', 'spcfwc' ), array(
 				'min'  => 1,
 				'step' => 1,
-			) )
-				->style( 'width:25%;' )
-				->field_default( 0 )
-				->desc_field( array(
-					__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
-					__( 'If product does not have a defined Minimum quantity then gloabl values will be used. ', 'spcfwc' ),
-				) );
-			$c1->field( 'number', 'max_qty', __( 'Maximum Allowed Quantity ? ', 'spcfwc' ), array(
+			) )->style( 'width:25%;' )->field_default( 0 )->desc_field( array(
+				__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
+				__( 'If product does not have a defined Minimum quantity then gloabl values will be used. ', 'spcfwc' ),
+			) );
+			$c1->add_field( 'number', 'max_qty', __( 'Maximum Allowed Quantity ? ', 'spcfwc' ), array(
 				'min'  => 1,
 				'step' => 1,
-			) )
-				->style( 'width:25%;' )
-				->field_default( 0 )
-				->desc_field( array(
-					__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
-					__( 'If product does not have a defined Maximum quantity then gloabl values will be used. ', 'spcfwc' ),
-				) );
+			) )->style( 'width:25%;' )->field_default( 0 )->desc_field( array(
+				__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
+				__( 'If product does not have a defined Maximum quantity then gloabl values will be used. ', 'spcfwc' ),
+			) );
 			wponion_wc_product( array( 'option_name' => '_spcf_wc' ), $builder );
 		}
 	}

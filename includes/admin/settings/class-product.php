@@ -17,6 +17,22 @@ class Product extends Base {
 	 * Generates View For Product Metabox.
 	 */
 	public function __construct() {
+		$args = array( 'option_name' => '_spcf_wc' );
+
+		if ( wponion_is_version( '1.5', '>=' ) ) {
+			wponion_wc_product( $args, array( $this, 'fields' ) );
+		} else {
+			wponion_wc_product( $args, $this->fields() );
+		}
+	}
+
+	/**
+	 * Returns Fields.
+	 *
+	 * @return \WPO\Builder
+	 * @since 1.1
+	 */
+	public function fields() {
 		$builder = wponion_builder();
 
 		$c1 = $builder->container( 'spcf_wc', __( 'Single Product Checkout', 'spcfwc' ) );
@@ -40,6 +56,6 @@ class Product extends Base {
 			__( 'User will be able to purchase the only if they met the requirement.', 'spcfwc' ),
 			__( 'If product does not have a defined Maximum quantity then gloabl values will be used. ', 'spcfwc' ),
 		) );
-		wponion_wc_product( array( 'option_name' => '_spcf_wc' ), $builder );
+		return $builder;
 	}
 }

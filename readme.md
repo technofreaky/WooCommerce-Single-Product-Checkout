@@ -8,7 +8,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-single-product-checkout/
 **Tested up to:** 5.4  
 **WC requires at least:** 2.2  
 **WC tested up to:** 3.1  
-**Stable tag:** 1.0  
+**Stable tag:** 1.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html   
 
@@ -99,6 +99,11 @@ Please open an issue at <a href="https://github.com/technofreaky/WooCommerce-Sin
 
 
 ## Changelog 
+
+### 1.2 - 14/06/2020 
+* Fixed : https://github.com/wponion/wponion/issues/252
+* Updated WPOnion To `1.5.2`
+
 
 ### 1.1 - 12/06/2020
 * ⚡ improved performance
